@@ -11,12 +11,16 @@ namespace twozerofoureight
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
+        int score=2;
 
         public TwoZeroFourEightModel() : this(4)
         {
             // default board size is 4 
         }
-
+        public int GetScore()
+        {
+            return score;
+        }
         public int[,] GetBoard()
         {
             return board;
@@ -54,11 +58,12 @@ namespace twozerofoureight
 
         public void PerformDown()
         {
+            score = score + 2;
             int[] buffer;
             int pos;
             int[] rangeX = Enumerable.Range(0, boardSize).ToArray();
             int[] rangeY = Enumerable.Range(0, boardSize).ToArray();
-            Array.Reverse(rangeY);
+            Array.Reverse(rangeY);      
             foreach (int i in rangeX)
             {
                 pos = 0;
@@ -107,6 +112,7 @@ namespace twozerofoureight
 
         public void PerformUp()
         {
+            score = score + 2;
             int[] buffer;
             int pos;
 
@@ -159,6 +165,7 @@ namespace twozerofoureight
 
         public void PerformRight()
         {
+            score = score + 2;
             int[] buffer;
             int pos;
 
@@ -213,6 +220,7 @@ namespace twozerofoureight
 
         public void PerformLeft()
         {
+            score = score + 2;
             int[] buffer;
             int pos;
             int[] range = Enumerable.Range(0, boardSize).ToArray();
