@@ -14,10 +14,13 @@ namespace twozerofoureight
     {
         Model model;
         Controller controller;
-       
+        ScoreView score = new ScoreView();
         public TwoZeroFourEightView()
         {
             InitializeComponent();
+            
+            score.Visible = true;
+            score.Enabled = true;
             model = new TwoZeroFourEightModel();
             model.AttachObserver(this);
             controller = new TwoZeroFourEightController();
@@ -29,6 +32,8 @@ namespace twozerofoureight
         {
             UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
             UpdateScore(((TwoZeroFourEightModel) m).GetScore());
+            score.UpdateSscore(((TwoZeroFourEightModel)m).GetScore());
+
         }
 
         private void UpdateTile(Label l, int i)
